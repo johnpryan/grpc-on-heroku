@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "",
-    "title": ""
+    "title": "helloworld.proto",
+    "version": "version not set"
   },
   "schemes": [
     "http",
@@ -17,11 +17,11 @@
   "paths": {
     "/v1/helloworld/greeter/say-hello": {
       "post": {
-        "summary": "Greeter.SayHello",
+        "summary": "Sends a greeting",
         "operationId": "SayHello",
         "responses": {
-          "default": {
-            "description": "Description",
+          "200": {
+            "description": "",
             "schema": {
               "$ref": "#/definitions/helloworldHelloReply"
             }
@@ -48,19 +48,26 @@
       "type": "object",
       "properties": {
         "message": {
-          "type": "string",
-          "format": "string"
+          "type": "string"
+        },
+        "score": {
+          "type": "integer",
+          "format": "int32"
         }
-      }
+      },
+      "title": "The response message containing the greetings"
     },
     "helloworldHelloRequest": {
       "type": "object",
       "properties": {
         "name": {
-          "type": "string",
-          "format": "string"
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
         }
-      }
+      },
+      "description": "The request message containing the user's name."
     }
   }
 }

@@ -7,18 +7,18 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/gengo/grpc-gateway/runtime"
+	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 
-	hw "github.com/kyleconroy/grpc-heroku/helloworld"
+	hw "github.com/johnpryan/grpc-on-heroku/helloworld"
 )
 
 type server struct{}
 
 // SayHello implements helloworld.GreeterServer
 func (s *server) SayHello(ctx context.Context, in *hw.HelloRequest) (*hw.HelloReply, error) {
-	return &hw.HelloReply{Message: "Hello " + in.Name}, nil
+	return &hw.HelloReply{Message: "Hello " + in.Name, Score: 10}, nil
 }
 
 func startGRPC(port string) error {
